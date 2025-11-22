@@ -63,7 +63,7 @@ int main() {
 
     cout << "Sent: " << result << " bytes" << endl;
 
-    // shutdown только на отправку
+
     result = shutdown(ConnectSocket, SD_SEND);
     if (result == SOCKET_ERROR) {
         cout << "shutdown failed" << endl;
@@ -73,10 +73,10 @@ int main() {
         return 1;
     }
 
-    // Цикл приема данных
+
     do {
         ZeroMemory(recvBuffer, 512);
-        result = recv(ConnectSocket, recvBuffer, 512, 0); // ДОБАВЛЕН ВЫЗОВ RECV
+        result = recv(ConnectSocket, recvBuffer, 512, 0); 
 
         if (result > 0) {
             cout << "Recv: " << result << " bytes" << endl;
